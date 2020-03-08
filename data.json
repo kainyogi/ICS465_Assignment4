@@ -1,0 +1,71 @@
+var json = [
+    {
+        "group": "Users",
+        "data": [
+            {
+                "name": "Aaron Geronimo",
+                "username": "aaronj9"
+            }, 
+            {
+                "name": "Keanu Williams",
+                "username": "kwill30"
+            }, 
+            {
+                "name": "Alton Lee",
+                "username": "altonlee"
+            }, 
+            {
+                "name": "Sunny Siu",
+                "username": "sunnysiu"
+            }, 
+            {
+                "name": "Sophia Kim",
+                "username": "sophiak8"
+            }, 
+            {
+                "name": "Jeffrey Suen",
+                "username": "sj39"
+            }, 
+            {
+                "name": "Sollie Garcia",
+                "username": "sollie"
+            }, 
+            {
+                "name": "Kain Yogi",
+                "username": "kainyogi"
+            }, 
+            {
+                "name": "Christopher Na",
+                "username": "cjna"
+            }, 
+            {
+                "name": "Dennis Kim",
+                "username": "dmk2"
+            },
+            {
+                "name": "Derek Nishimoto",
+                "username": "derekcn"
+            }, 
+            {
+                "name": "Jan Iverson Eligio",
+                "username": "jeligio"
+            },
+            {
+                "name": "Cal Maruyama",
+                "username": "calmaruy"
+            },
+            {
+                "name": "Hoku Tobin",
+                "username": "htobin"
+            },
+            {
+                "name": "Aaron Nonaka",
+                "username": "nonakaa"
+            },
+            {
+                "name": "Leah-Mei Villanueva",
+                "username": "leahmei"
+            },
+        ]
+    },
+]
