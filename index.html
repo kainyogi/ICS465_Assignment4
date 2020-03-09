@@ -1,97 +1,51 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+<style>
+    .column {
+        float: left;
+        width: 50%;
+    }
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    textarea{
+        width: 99%;
+        height: 400px;
+        resize: none;
+        border:solid 2px black;
+    }
+</style>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-    <title>Assignment #2</title>
+    <title>Assignment 5</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
     <script type="text/javascript" src="data.json"></script>
 </head>
 <body>
-    <div style="height: 100vh; align-items: center; justify-content: space-around" class="ui two colomn container">
-            <h1 align="center">Assignment #2</h1>
-            <p>
-                Construct a webpage (HTML, CSS, JS6/CoffeeScript/TypeScript) that splits some objects read from a resource file into random groups of size N and displays the groups within a table. You can choose the type of the resource file, e.g. JSON, Lines of text, CSV, or TSV, the user should be able to specify the groups of size N conveniently, i.e either select it from a dropdown list or type it in. While a random set of groups should be presented to the user initially,  the user should be able to make a new set of groups at any time. Your code has to clearly outline who was the author for each portion of the code. Upload your app to one group member's UH account.
-            </p>
-        <div
-            <div class="ui inverted segment">
-                <form class="ui inline form" id="group-form">
-                    <h4 class="ui inverted dividing header">Group Generator</h4>
-                    <div class="field">
-                        <label><font color="white">Group Size</font></label>
-                        <div class="ui action input">
-                            <input type="number" name="size" id="size" value="5" min="1">
-
-                            <div class="ui inverted teal basic button" onclick="makeGroups()">Generate Groups</div>
-                        </div>
-                    </div>
-                </form>
+    <div align="center">
+        <h1>Assignment 5 Copy and Paste</h1>
+    </div>
+    <div>
+        <div class="row">
+            <div class="column">
+                <textarea>
+                </textarea>
             </div>
-            <table class="ui inverted celled table">
-                <thead>
-                    <tr><th class="three wide">Group Number</th>
-                    <th>Group Members</th></tr>
-                </thead>
-                <tbody id="groups">
-                    <tr><td>Name</td>
-                    <td>Value</td></tr>
-                </tbody>
-            </table>
+            <div class="column">
+                <textarea>
+                </textarea>
+            </div>
+        </div>
+        <div>
+            <h2 align="center">
+                Clipboard
+            </h2>
         </div>
     </div>
 </body>
 </html>
-<script>
-    /*
-        HTTML Section done by Kain Yogi
-        Script section done by Jeffrey Suen, assisted by Kain Yogi for makeGroups()
-    */
-
-    /*    
-    *   This function first takes the json file and randomizes the order into an array. It then calls the groupify function
-    *   on the randomized set then displays the groups.
-    */
-    function makeGroups() {
-        var input;
-        var groupsize = parseInt(document.getElementById("size").value);
-        input = json[0].data;
-        shuffle(input);
-
-        var output = groupify(input, groupsize);
-        var row = "";
-        for (var i = 0; i < output.length; i++) {
-            row += "<tr>\n<td>" + "Group " + (i + 1) + "</td><td>";
-            for (var j = 0; j < output[i].length; j++) {
-                row += output[i][j].name + " (" + output[i][j].username + "), ";
-            }
-            row += "</td>\n</tr>" + "\n";
-            $("#groups").html(row);
-        }
-    }
-    
-    // This function is used to shuffle the array of name-username pairs within the json data set
-    function shuffle(input) {
-        var temp, j;
-        for (var i = input.length - 1; i > 0; i--) {
-            j = Math.floor(Math.random() * (i + 1));
-            temp = input[i];
-            input[i] = input[j];
-            input[j] = temp;
-        }
-        return input;
-    }
-    
-    
-    // This function splices the randomly shuffled set (input) into groups of size (size)
-    function groupify(input, size) {
-        var groups = []; 
-        for (var i = 0; i < input.length; i += size) {
-           var splicedGroup = input.slice(i, i + size);
-            groups.push(splicedGroup);
-        }
-        return groups;
-    }
-
-</script>
