@@ -56,7 +56,7 @@ I'm still in love I know so are you
 Let's talk tonight and we can talk it through</textarea>
             </div>
             <div class="column">
-                <textarea id="text_2" onkeydown="DoThis2()"></textarea>
+                <textarea id="text_2" onkeydown="DoThis2"></textarea>
             </div>
         </div>
         <div  align="center">
@@ -73,17 +73,25 @@ Let's talk tonight and we can talk it through</textarea>
     const source = document.getElementById("text_1");
     source.addEventListener('copy', (event) => {
       const selection = document.getSelection();
-      document.getElementById("clip").innerHTML += selection + "\n";
-      event.preventDefault();
+      let x = selection;
+      document.getElementById("clip").innerHTML = x + "\n";
+    });
+    source.addEventListener('cut', (event) => {
+      const selection = document.getSelection();
+      document.getElementById("clip").innerHTML = selection + "\n";
     });
   }
 
   function DoThis2() {
     const source = document.getElementById("text_2");
     source.addEventListener('copy', (event) => {
+      let selection = document.getSelection();
+      document.getElementById("clip").innerHTML = selection + "\n";
+    });
+    source.addEventListener('cut', (event) => {
       const selection = document.getSelection();
-      document.getElementById("clip").innerHTML += selection + "\n";
-      event.preventDefault();
+      document.getElementById("clip").innerHTML = selection + "\n";
     });
   }
+
 </script>
