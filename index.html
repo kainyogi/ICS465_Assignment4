@@ -70,11 +70,11 @@ Let's talk tonight and we can talk it through</textarea>
 </html>
 <script>
   function DoThis() {
-    document.addEventListener('paste', function (evt) {
-      let clipdata = evt.clipboardData || window.clipboardData;
-      let x = clipdata.getData('text/plain');
-      console.log(x);
-      document.getElementById("clip").innerText = x;
+    const source = document.getElementById("text_1");
+    source.addEventListener('copy', (event) => {
+      const selection = document.getSelection();
+      document.getElementById("clip").innerHTML += selection + "\n";
+      event.preventDefault();
     });
   }
 </script>
