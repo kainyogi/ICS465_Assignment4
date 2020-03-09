@@ -72,25 +72,22 @@ Let's talk tonight and we can talk it through</textarea>
 <script>
   function DoThis() {
     const source = document.getElementById("text_1");
+    let selection = document.getSelection();
     source.addEventListener('copy', (event) => {
-      const selection = document.getSelection();
-      let x = selection;
-      document.getElementById("clip").innerHTML = x + "\n";
+      document.getElementById("clip").innerHTML += selection + "\n";
     });
     source.addEventListener('cut', (event) => {
-      const selection = document.getSelection();
-      document.getElementById("clip").innerHTML = selection + "\n";
+      document.getElementById("clip").innerHTML += selection + "\n";
     });
   }
 
   function DoThis2() {
     const source = document.getElementById("text_2");
+    let selection = document.getSelection();
     source.addEventListener('copy', (event) => {
-      let selection = document.getSelection();
       document.getElementById("clip").innerHTML = selection + "\n";
     });
     source.addEventListener('cut', (event) => {
-      const selection = document.getSelection();
       document.getElementById("clip").innerHTML = selection + "\n";
     });
   }
