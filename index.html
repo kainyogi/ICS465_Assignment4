@@ -102,15 +102,21 @@ Let's talk tonight and we can talk it through</textarea>
 </html>
 <script>
   const sourceText1 = document.getElementById("text_1");
-  const sourceText2 = document.getElementById("text_2"); 
+  const sourceText2 = document.getElementById("text_2");
   sourceText1.addEventListener('copy', DoThis);
   sourceText1.addEventListener('cut', DoThis);
+  sourceText1.addEventListener('paste', Pastethis1);
   sourceText2.addEventListener('copy', DoThis);
   sourceText2.addEventListener('cut', DoThis);
   function DoThis() {
     let selection = document.getSelection();
     console.log(selection);
     document.getElementById("clip").innerHTML += selection + "\n";
+  }
+  function Pastethis1() {
+    sourceText1.preventDefault();
+    let clip = document.getElementById("clip").innerHTML;
+    document.getElementById("clip").innerHTML += clip + "\n";
   }
 
 </script>
