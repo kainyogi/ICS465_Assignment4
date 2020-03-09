@@ -24,7 +24,6 @@
     <title>Assignment 5</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-    <script type="text/javascript" src="data.json"></script>
 </head>
 <body>
     <div align="center">
@@ -71,8 +70,11 @@ Let's talk tonight and we can talk it through</textarea>
 </html>
 <script>
   function DoThis() {
-    document.getElementById("clip").innerHTML = document.addEventListener('copy', function (evt) {
-      console.log(evt.clipboardData.getData('text/plain'));
+    document.addEventListener('paste', function (evt) {
+      let clipdata = evt.clipboardData || window.clipboardData;
+      let x = clipdata.getData('text/plain');
+      console.log(x);
+      document.getElementById("clip").innerText = x;
     });
   }
 </script>
