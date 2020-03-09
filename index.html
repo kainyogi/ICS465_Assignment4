@@ -96,13 +96,16 @@ Let's talk tonight and we can talk it through</textarea>
                 Clipboard
             </h2>
             <textarea id="clip"></textarea>
+          <button type="button" onclick="ClearFields();">Clear</button>
+        </div>
+    </div>
         </div>
     </div>
 </body>
 </html>
 <script>
   const sourceText1 = document.getElementById("text_1");
-  const sourceText2 = document.getElementById("text_2"); 
+  const sourceText2 = document.getElementById("text_2");
   sourceText1.addEventListener('copy', DoThis);
   sourceText1.addEventListener('cut', DoThis);
   sourceText2.addEventListener('copy', DoThis);
@@ -113,4 +116,9 @@ Let's talk tonight and we can talk it through</textarea>
     document.getElementById("clip").innerHTML += selection + "\n";
   }
 
+  function ClearFields() {
+
+    document.getElementById("clip").value = "";
+
+  }
 </script>
