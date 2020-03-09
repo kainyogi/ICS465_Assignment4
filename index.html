@@ -33,7 +33,7 @@
     <div>
         <div class="row">
             <div class="column">
-                <textarea id="text_1" onkeydown="DoThis()">[Chorus: Ouse]
+                <textarea id="text_1" onmouseover="DoThis()">[Chorus: Ouse]
 I see, dead eyes on the verge of suicide
 I realize it's not alright
 I'll find my way to idolize it
@@ -57,7 +57,7 @@ I'm still in love I know so are you
 Let's talk tonight and we can talk it through</textarea>
             </div>
             <div class="column">
-                <textarea id="text_2" onkeydown="DoThis2"></textarea>
+                <textarea id="text_2" onmouseover="DoThis2"></textarea>
             </div>
         </div>
         <div  align="center">
@@ -74,6 +74,7 @@ Let's talk tonight and we can talk it through</textarea>
     const source = document.getElementById("text_1");
     let selection = document.getSelection();
     source.addEventListener('copy', (event) => {
+      console.log(selection);
       document.getElementById("clip").innerHTML += selection + "\n";
     });
     source.addEventListener('cut', (event) => {
@@ -85,10 +86,10 @@ Let's talk tonight and we can talk it through</textarea>
     const source = document.getElementById("text_2");
     let selection = document.getSelection();
     source.addEventListener('copy', (event) => {
-      document.getElementById("clip").innerHTML = selection + "\n";
+      document.getElementById("clip").innerHTML += selection + "\n";
     });
     source.addEventListener('cut', (event) => {
-      document.getElementById("clip").innerHTML = selection + "\n";
+      document.getElementById("clip").innerHTML += selection + "\n";
     });
   }
 
