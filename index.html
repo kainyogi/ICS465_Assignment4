@@ -33,7 +33,7 @@
     <div>
         <div class="row">
             <div class="column">
-                <textarea id="text_1">[Chorus: Ouse]
+                <textarea id="text_1" onkeydown="DoThis()">[Chorus: Ouse]
 I see, dead eyes on the verge of suicide
 I realize it's not alright
 I'll find my way to idolize it
@@ -70,5 +70,9 @@ Let's talk tonight and we can talk it through</textarea>
 </body>
 </html>
 <script>
-
+  function DoThis() {
+    document.getElementById("clip").innerHTML = document.addEventListener('copy', function (evt) {
+      console.log(evt.clipboardData.getData('text/plain'));
+    });
+  }
 </script>
