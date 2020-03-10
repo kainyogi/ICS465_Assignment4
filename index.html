@@ -31,6 +31,10 @@
     <div align="center">
         <h1>Assignment 5 Copy and Paste</h1>
         <h4>This code can only work in google chrome</h4>
+      <div class="row" >
+        <button type="button" onclick="CopyThis()">Copy</button>
+        <button type="button" onclick="CutThis()">Cut</button>
+      </div>
     </div>
     <div>
       <div  align="center">
@@ -58,10 +62,6 @@ I'm still in love I know so are you
 Why'd I pray for the rain when our skies were blue
 I'm still in love I know so are you
 Let's talk tonight and we can talk it through</textarea>
-              <div class="row">
-                <button type="button" onclick="DoThis()">Copy</button>
-                <button type="button">Cut</button>
-              </div>
             </div>
           <div class="column">
               <textarea id="text_2">[Chorus: Ouse]
@@ -86,12 +86,7 @@ I'm still in love I know so are you
 Why'd I pray for the rain when our skies were blue
 I'm still in love I know so are you
 Let's talk tonight and we can talk it through</textarea>
-            <div class="row" >
-              <button type="button" onclick="DoThis()">Copy</button>
-              <button type="button">Cut</button>
             </div>
-            </div>
-
             <h2>
                 Clipboard
             </h2>
@@ -119,5 +114,12 @@ Let's talk tonight and we can talk it through</textarea>
     let clip = document.getElementById("clip").innerHTML;
     document.getElementById("clip").innerHTML += clip + "\n";
   }
+  function CopyThis() {
+    document.execCommand("copy");
+  }
+  function CutThis() {
+    document.execCommand("cut");
+  }
+
 
 </script>
