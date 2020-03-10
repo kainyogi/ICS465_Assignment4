@@ -4,16 +4,18 @@
         float: left;
         width: 50%;
     }
+
     .row:after {
         content: "";
         display: table;
         clear: both;
     }
-    textarea{
+
+    textarea {
         width: 99%;
         height: 400px;
         resize: none;
-        border:solid 2px black;
+        border: solid 2px black;
     }
 </style>
 <html lang="en">
@@ -34,8 +36,8 @@
         <div class="row">
 
             <div class="column">
-              <button> Copy</button>
-              <button> Cut</button>
+                <button onmousedown="getSelectedText()"> Copy</button>
+                <button> Cut</button>
                 <textarea id="text_1">[Chorus: Ouse]
 I see, dead eyes on the verge of suicide
 I realize it's not alright
@@ -61,7 +63,7 @@ Let's talk tonight and we can talk it through</textarea>
             </div>
 
             <div class="column">
-                <button> Copy</button>
+                <button onmousedown="getSelectedText()"> Copy</button>
                 <button> Cut</button>
                 <textarea id="text_2">[Chorus: Ouse]
 I see, dead eyes on the verge of suicide
@@ -87,34 +89,49 @@ I'm still in love I know so are you
 Let's talk tonight and we can talk it through</textarea>
             </div>
         </div>
-        <div  align="center">
+        <div align="center">
             <h2>
                 Clipboard
             </h2>
             <textarea id="clip"></textarea>
-          <button type="button" onclick="ClearFields();">Clear</button>
+            <button type="button" onclick="ClearFields();">Clear</button>
         </div>
     </div>
-        </div>
+    </div>
     </div>
 </body>
 </html>
 <script>
-  const sourceText1 = document.getElementById("text_1");
-  const sourceText2 = document.getElementById("text_2");
-  sourceText1.addEventListener('copy', DoThis);
-  sourceText1.addEventListener('cut', DoThis);
-  sourceText2.addEventListener('copy', DoThis);
-  sourceText2.addEventListener('cut', DoThis);
-  function DoThis() {
-    let selection = document.getSelection();
-    console.log(selection);
-    document.getElementById("clip").innerHTML += selection + "\n";
-  }
-
-  function ClearFields() {
-
-    document.getElementById("clip").innerHTML = "";
-
-  }
+    const sourceText1 = document.getElementById("text_1");
+    const sourceText2 = document.getElementById("text_2");
+    sourceText1.addEventListener('copy', DoThis);
+    sourceText1.addEventListener('cut', DoThis);
+    sourceText2.addEventListener('copy', DoThis);
+    sourceText2.addEventListener('cut', DoThis);
+    function DoThis() {
+        let selection = document.getSelection();
+        console.log(selection);
+        document.getElementById("clip").innerHTML += selection + "\n";
+    }
+    function ClearFields() {
+        document.getElementById("clip").innerHTML = "";
+    }
+    function getSelectedText() {
+        var selectedText = '';
+        // window.getSelection
+        if (window.getSelection) {
+            selectedText = window.getSelection();
+        }
+        // document.getSelection
+        else if (document.getSelection) {
+            selectedText = document.getSelection();
+        }
+        // document.selection
+        else if (document.selection) {
+            selectedText =
+                document.selection.createRange().text;
+        } else return;
+        // To write the selected text into the textarea
+        document.getElementById("clip").innerHTML += selectedText + "\n";
+    }
 </script>
