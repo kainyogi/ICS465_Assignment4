@@ -27,6 +27,7 @@
     <title>Assignment 5</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script async="" src="https://www.google-analytics.com/analytics.js"></script>
 </head>
 <body>
     <div align="center">
@@ -41,6 +42,7 @@
         <div align="center">
             <div class="row">
                 <div class="column">
+                  <button id="paste1">Paste from Clipboard</button>
                     <textarea id="text_1">[Chorus: Ouse]
 I see, dead eyes on the verge of suicide
 I realize it's not alright
@@ -65,6 +67,7 @@ I'm still in love I know so are you
 Let's talk tonight and we can talk it through</textarea>
                 </div>
                 <div class="column">
+                  <button id="paste2">Paste from Clipboard</button>
                     <textarea id="text_2">[Chorus: Ouse]
 I see, dead eyes on the verge of suicide
 I realize it's not alright
@@ -88,10 +91,16 @@ Why'd I pray for the rain when our skies were blue
 I'm still in love I know so are you
 Let's talk tonight and we can talk it through</textarea>
                 </div>
+
                 <h2>
                     Clipboard
                 </h2>
+              <div>
+                <button id="copy">Copy ClipBoard</button>
+              </div>
                 <textarea id="clip"></textarea>
+              <div>
+              </div>
             </div>
         </div>
     </div>
@@ -121,6 +130,34 @@ Let's talk tonight and we can talk it through</textarea>
     function CutThis() {
         document.execCommand("cut");
     }
+    //copy from Clipboard
+    document.querySelector('#copy').addEventListener('click', () => {
+      navigator.clipboard.writeText(document.querySelector('#clip').value)
+
+    });
+    //paste from Clipboard to textarea 1
+    document.querySelector('#paste1').addEventListener('click', () => {
+      navigator.clipboard.readText()
+      //need to fix this line for paste to work properly
+          .then(text => {
+            document.querySelector('#text_1').value = text;
+          })
+
+    });
+
+    //paste from Clipboard to textarea 2
+    document.querySelector('#paste2').addEventListener('click', () => {
+      navigator.clipboard.readText()
+      //need to fix this line for paste to work properly
+          .then(text => {
+            document.querySelector('#text_2').value = text;
+          })
+
+    });
+
+    document.addEventListener('paste', e => {
+      e.preventDefault();
+    });
 
 
 </script>
